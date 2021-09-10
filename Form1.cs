@@ -46,7 +46,7 @@ namespace WindowsFormsApp7
 
             XmlSerializer formatter = new XmlSerializer(typeof(People));
 
-            // получаем поток, куда будем записывать сериализованный объект
+           
             using (FileStream fs = new FileStream(@"D:\persons.xml", FileMode.OpenOrCreate))
             {
                 for (int i = 0; i < Peoples.Count; i++)
