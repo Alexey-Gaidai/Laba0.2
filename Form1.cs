@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsApp7
 {
@@ -43,32 +45,28 @@ namespace WindowsFormsApp7
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            XmlSerializer formatter = new XmlSerializer(typeof(People));
-
-
-            using (FileStream fs = new FileStream(@"D:\persons.xml", FileMode.OpenOrCreate))
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(@"D:\json.txt"))
+            using (JsonWriter writer = new JsonTextWriter(sw))
             {
-
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(mylistcollection));
-                xmlSerializer.Serialize(fs, peoples1);
-
+                serializer.Serialize(writer, peoples1);
             }
         }
 
 
         private void button3_Click(object sender, EventArgs e)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(People));
-            using (FileStream fs = new FileStream(textBox5.Text, FileMode.Open))
+            StreamReader sw = new StreamReader(textBox5.Text);
+            textBox5.Text = "";
+            string readtext = sw.ReadToEnd();
+            mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
+            for (int i = 0; i < deserialized.Peoples.Count; i++)
             {
-                string data = fs.ToString();
-                var stringReader = new StringReader(data);
-                mylistcollection collection = (mylistcollection)formatter.Deserialize(fs);
-
+                 People dd = new People(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                 peoples1.Peoples.Add(dd);
+                 dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
             }
-            for (int i = 0; i < peoples1.Peoples.Count; i++)
-                dataGridView1.Rows.Add(peoples1.Peoples[i].name, peoples1.Peoples[i].lastname, peoples1.Peoples[i].sex, peoples1.Peoples[i].height);
+            sw.Close();
         }
     }
     public class mylistcollection
