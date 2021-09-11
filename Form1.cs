@@ -14,7 +14,7 @@ namespace WindowsFormsApp7
 {
     public partial class Form1 : Form
     {
-        public List<People> Peoples = new List<People>();
+        mylistcollection peoples1 = new mylistcollection();
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace WindowsFormsApp7
             else
             {
                 People pep = new People(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text));
-                Peoples.Add(pep);
+                peoples1.Peoples.Add(pep);
                 dataGridView1.Rows.Add(pep.name, pep.lastname, pep.sex, pep.height);
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -46,11 +46,12 @@ namespace WindowsFormsApp7
 
             XmlSerializer formatter = new XmlSerializer(typeof(People));
 
-           
+
             using (FileStream fs = new FileStream(@"D:\persons.xml", FileMode.OpenOrCreate))
             {
 
-                formatter.Serialize(fs, Peoples);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(mylistcollection));
+                xmlSerializer.Serialize(fs, peoples1);
 
             }
         }
@@ -61,17 +62,18 @@ namespace WindowsFormsApp7
             XmlSerializer formatter = new XmlSerializer(typeof(People));
             using (FileStream fs = new FileStream(textBox5.Text, FileMode.Open))
             {
-               
-                 People[] newPerson = (People[])formatter.Deserialize(fs);
-                foreach (People p in newPerson)
-                {
-                    Peoples.Add(p);
-                }
-               
+                string data = fs.ToString();
+                var stringReader = new StringReader(data);
+                mylistcollection collection = (mylistcollection)formatter.Deserialize(fs);
+
             }
-            for (int i = 0; i < Peoples.Count; i++)
-                dataGridView1.Rows.Add(Peoples[i].name, Peoples[i].lastname, Peoples[i].sex, Peoples[i].height);
+            for (int i = 0; i < peoples1.Peoples.Count; i++)
+                dataGridView1.Rows.Add(peoples1.Peoples[i].name, peoples1.Peoples[i].lastname, peoples1.Peoples[i].sex, peoples1.Peoples[i].height);
         }
+    }
+    public class mylistcollection
+    {
+        public List<People> Peoples = new List<People>();
     }
 
     public class People
