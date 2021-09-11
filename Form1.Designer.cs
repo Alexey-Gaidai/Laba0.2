@@ -56,16 +56,18 @@ namespace WindowsFormsApp7
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(467, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(442, 321);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -94,16 +96,20 @@ namespace WindowsFormsApp7
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(556, 258);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(163, 75);
             this.button1.TabIndex = 1;
             this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.Snow;
             this.textBox1.Location = new System.Drawing.Point(504, 29);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(257, 20);
@@ -111,6 +117,7 @@ namespace WindowsFormsApp7
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.Snow;
             this.textBox2.Location = new System.Drawing.Point(504, 80);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(257, 20);
@@ -118,6 +125,7 @@ namespace WindowsFormsApp7
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.Snow;
             this.textBox3.Location = new System.Drawing.Point(504, 131);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(257, 20);
@@ -125,6 +133,7 @@ namespace WindowsFormsApp7
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.Snow;
             this.textBox4.Location = new System.Drawing.Point(504, 181);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(257, 20);
@@ -135,19 +144,21 @@ namespace WindowsFormsApp7
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(606, 204);
+            this.label1.Location = new System.Drawing.Point(530, 204);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 6;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(690, 395);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 43);
             this.button2.TabIndex = 7;
             this.button2.Text = "Сохранить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // openFileDialog1
@@ -156,17 +167,19 @@ namespace WindowsFormsApp7
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 415);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(12, 405);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 23);
+            this.button3.Size = new System.Drawing.Size(119, 29);
             this.button3.TabIndex = 8;
             this.button3.Text = "Открыть";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 389);
+            this.textBox5.Location = new System.Drawing.Point(12, 378);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(243, 20);
             this.textBox5.TabIndex = 9;
@@ -215,7 +228,7 @@ namespace WindowsFormsApp7
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(12, 370);
+            this.label6.Location = new System.Drawing.Point(12, 359);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 16);
             this.label6.TabIndex = 14;
@@ -235,6 +248,7 @@ namespace WindowsFormsApp7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCoral;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -252,6 +266,7 @@ namespace WindowsFormsApp7
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

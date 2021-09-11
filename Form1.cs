@@ -31,11 +31,12 @@ namespace WindowsFormsApp7
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
                 label1.Text = "Введите все данные!!!";
-            else
+            else if (textBox3.Text == "male" || textBox3.Text == "female")
             {
                 People pep = new People(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text));
                 peoples1.Peoples.Add(pep);
                 dataGridView1.Rows.Add(pep.name, pep.lastname, pep.sex, pep.height);
+                label1.Text = "";
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
