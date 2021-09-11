@@ -49,10 +49,28 @@ namespace WindowsFormsApp7
            
             using (FileStream fs = new FileStream(@"D:\persons.xml", FileMode.OpenOrCreate))
             {
-                for (int i = 0; i < Peoples.Count; i++)
-                formatter.Serialize(fs, Peoples[i]);
+
+                formatter.Serialize(fs, Peoples);
 
             }
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(People));
+            using (FileStream fs = new FileStream(textBox5.Text, FileMode.Open))
+            {
+               
+                 People[] newPerson = (People[])formatter.Deserialize(fs);
+                foreach (People p in newPerson)
+                {
+                    Peoples.Add(p);
+                }
+               
+            }
+            for (int i = 0; i < Peoples.Count; i++)
+                dataGridView1.Rows.Add(Peoples[i].name, Peoples[i].lastname, Peoples[i].sex, Peoples[i].height);
         }
     }
 
