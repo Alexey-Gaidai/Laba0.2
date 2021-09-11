@@ -30,7 +30,7 @@ namespace WindowsFormsApp7
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
-                label1.Text = "vvedite dannie";
+                label1.Text = "Введите все данные!!!";
             else
             {
                 People pep = new People(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text));
@@ -56,17 +56,23 @@ namespace WindowsFormsApp7
 
         private void button3_Click(object sender, EventArgs e)
         {
-            StreamReader sw = new StreamReader(textBox5.Text);
-            textBox5.Text = "";
-            string readtext = sw.ReadToEnd();
-            mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
-            for (int i = 0; i < deserialized.Peoples.Count; i++)
+            if (textBox5.Text == "")
+                label7.Text = "Введите Директорию!";
+            else
             {
-                 People dd = new People(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
-                 peoples1.Peoples.Add(dd);
-                 dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                StreamReader sw = new StreamReader(textBox5.Text);
+                textBox5.Text = "";
+                string readtext = sw.ReadToEnd();
+                mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
+                for (int i = 0; i < deserialized.Peoples.Count; i++)
+                {
+                    People dd = new People(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                    peoples1.Peoples.Add(dd);
+                    dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                }
+                sw.Close();
+
             }
-            sw.Close();
         }
     }
     public class mylistcollection
