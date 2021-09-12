@@ -50,6 +50,13 @@ namespace WindowsFormsApp7
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,9 +160,9 @@ namespace WindowsFormsApp7
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(690, 395);
+            this.button2.Location = new System.Drawing.Point(9, 477);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 43);
+            this.button2.Size = new System.Drawing.Size(112, 29);
             this.button2.TabIndex = 7;
             this.button2.Text = "Сохранить";
             this.button2.UseVisualStyleBackColor = false;
@@ -169,7 +176,7 @@ namespace WindowsFormsApp7
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(12, 405);
+            this.button3.Location = new System.Drawing.Point(9, 385);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 29);
             this.button3.TabIndex = 8;
@@ -179,7 +186,7 @@ namespace WindowsFormsApp7
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 378);
+            this.textBox5.Location = new System.Drawing.Point(9, 358);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(243, 20);
             this.textBox5.TabIndex = 9;
@@ -228,7 +235,7 @@ namespace WindowsFormsApp7
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(12, 359);
+            this.label6.Location = new System.Drawing.Point(9, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 16);
             this.label6.TabIndex = 14;
@@ -239,17 +246,81 @@ namespace WindowsFormsApp7
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(137, 418);
+            this.label7.Location = new System.Drawing.Point(64, 417);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 16);
             this.label7.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(514, 432);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 16);
+            this.label8.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(514, 385);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 16);
+            this.label9.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(553, 347);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(170, 16);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Данные о самых высоких:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(592, 518);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(112, 29);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Получить";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(9, 451);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(243, 20);
+            this.textBox6.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(9, 429);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 16);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Путь к файлу:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 559);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -299,6 +370,13 @@ namespace WindowsFormsApp7
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label11;
     }
 }
 

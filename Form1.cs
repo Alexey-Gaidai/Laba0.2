@@ -27,6 +27,34 @@ namespace WindowsFormsApp7
             DataTable table = new DataTable();
         }
 
+        public void maxHeightMale()
+        {
+            double max = 0;
+            string maxname = "", maxlastname = "";
+            foreach (var p in peoples1.Peoples)
+            {
+                if (max < p.height & p.sex == "male")
+                max = p.height;
+            }
+            label8.Text = "Max male height: " + max.ToString() + "\n" + maxname + " " + maxlastname;
+        }
+        public void maxHeightFemale()
+        {
+            double max = 0;
+            string maxfemname = "", maxfemlastname = "";
+            foreach (var p in peoples1.Peoples)
+            {
+                if (max < p.height & p.sex == "female")
+                {
+                    max = p.height;
+                    maxfemname = p.name;
+                    maxfemlastname = p.lastname;
+                }
+
+            }
+            label9.Text = "Max fem height: " + max.ToString()+"\n"+maxfemname+" "+maxfemlastname;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
@@ -47,33 +75,76 @@ namespace WindowsFormsApp7
         private void button2_Click(object sender, EventArgs e)
         {
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter sw = new StreamWriter(@"D:\json.txt"))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            try
             {
-                serializer.Serialize(writer, peoples1);
+                using (StreamWriter sw = new StreamWriter(textBox5.Text))
+                using (JsonWriter writer = new JsonTextWriter(sw))
+                {
+                    if (peoples1.Peoples.Count != 0)
+                    {
+                        serializer.Serialize(writer, peoples1);
+                    }
+                    else
+                        label7.Text = "В таблице нет данных!";
+                }
             }
+            catch (System.ArgumentException)
+            {
+                label7.Text = "некорректный путь";
+            }
+            textBox5.Text = "";
         }
 
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox5.Text == "")
-                label7.Text = "Введите Директорию!";
-            else
+            try
             {
                 StreamReader sw = new StreamReader(textBox5.Text);
-                textBox5.Text = "";
-                string readtext = sw.ReadToEnd();
-                mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
-                for (int i = 0; i < deserialized.Peoples.Count; i++)
+                if (textBox5.Text == "")
+                    label7.Text = "Введите Директорию!";
+                else
                 {
-                    People dd = new People(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
-                    peoples1.Peoples.Add(dd);
-                    dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                    string readtext = sw.ReadToEnd();
+                    mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
+                    for (int i = 0; i < deserialized.Peoples.Count; i++)
+                    {
+                        People dd = new People(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                        peoples1.Peoples.Add(dd);
+                        dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
+                    }
+                    sw.Close();
+                    textBox5.Text = "";
                 }
-                sw.Close();
-
             }
+            catch(System.IO.FileNotFoundException)
+            {
+                label7.Text = "invalid directory";
+                textBox5.Text = "";
+            }
+            catch(System.NullReferenceException)
+            {
+                label7.Text = "invalid file";
+                textBox5.Text = "";
+            }
+            catch (System.ArgumentException)
+            {
+                label7.Text = "некорректный путь";
+                textBox5.Text = "";
+            }
+        }
+
+
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            maxHeightMale();
+            maxHeightFemale();
         }
     }
     public class mylistcollection
