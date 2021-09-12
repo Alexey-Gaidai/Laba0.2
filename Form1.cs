@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -27,6 +26,18 @@ namespace WindowsFormsApp7
             DataTable table = new DataTable();
         }
 
+        public void averageHeight()
+        {
+            double heights = 0;
+            double avg = 0;
+            foreach (var p in peoples1.Peoples)
+            {
+                heights += p.height;
+            }
+            avg = heights / peoples1.Peoples.Count;
+            label13.Text = "Средний рост:"+avg.ToString();
+        }
+
         public void maxHeightMale()
         {
             double max = 0;
@@ -34,7 +45,11 @@ namespace WindowsFormsApp7
             foreach (var p in peoples1.Peoples)
             {
                 if (max < p.height & p.sex == "male")
-                max = p.height;
+                {
+                    max = p.height;
+                    maxname = p.name;
+                    maxlastname = p.lastname;
+                }
             }
             label8.Text = "Max male height: " + max.ToString() + "\n" + maxname + " " + maxlastname;
         }
@@ -77,7 +92,7 @@ namespace WindowsFormsApp7
             JsonSerializer serializer = new JsonSerializer();
             try
             {
-                using (StreamWriter sw = new StreamWriter(textBox5.Text))
+                using (StreamWriter sw = new StreamWriter(textBox6.Text))
                 using (JsonWriter writer = new JsonTextWriter(sw))
                 {
                     if (peoples1.Peoples.Count != 0)
@@ -85,14 +100,14 @@ namespace WindowsFormsApp7
                         serializer.Serialize(writer, peoples1);
                     }
                     else
-                        label7.Text = "В таблице нет данных!";
+                        label12.Text = "В таблице нет данных!";
                 }
             }
             catch (System.ArgumentException)
             {
-                label7.Text = "некорректный путь";
+                label12.Text = "некорректный путь";
             }
-            textBox5.Text = "";
+            textBox6.Text = "";
         }
 
 
@@ -100,11 +115,11 @@ namespace WindowsFormsApp7
         {
             try
             {
-                StreamReader sw = new StreamReader(textBox5.Text);
                 if (textBox5.Text == "")
                     label7.Text = "Введите Директорию!";
                 else
                 {
+                    StreamReader sw = new StreamReader(textBox5.Text);
                     string readtext = sw.ReadToEnd();
                     mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
                     for (int i = 0; i < deserialized.Peoples.Count; i++)
@@ -145,6 +160,7 @@ namespace WindowsFormsApp7
         {
             maxHeightMale();
             maxHeightFemale();
+            averageHeight();
         }
     }
     public class mylistcollection
