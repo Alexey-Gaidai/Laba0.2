@@ -72,18 +72,25 @@ namespace WindowsFormsApp7
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
-                label1.Text = "Введите все данные!!!";
-            else if (textBox3.Text == "male" || textBox3.Text == "female")
+            try
             {
-                People pep = new People(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text));
-                peoples1.Peoples.Add(pep);
-                dataGridView1.Rows.Add(pep.name, pep.lastname, pep.sex, pep.height);
-                label1.Text = "";
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
+                if (textBoxName.Text == "" || textBoxLastname.Text == "" || textBoxSex.Text == "" || textBoxHeight.Text == "")
+                    label1.Text = "Введите все данные!!!";
+                else if (textBoxSex.Text == "male" || textBoxSex.Text == "female")
+                {
+                    People pep = new People(textBoxName.Text, textBoxLastname.Text, textBoxSex.Text, Convert.ToInt32(textBoxHeight.Text));
+                    peoples1.Peoples.Add(pep);
+                    dataGridView1.Rows.Add(pep.name, pep.lastname, pep.sex, pep.height);
+                    label1.Text = "";
+                    textBoxName.Text = "";
+                    textBoxLastname.Text = "";
+                    textBoxSex.Text = "";
+                    textBoxHeight.Text = "";
+                }
+            }
+            catch(System.FormatException)
+            {
+                label1.Text = "Введенный рост не число";
             }
         }
 
@@ -92,7 +99,7 @@ namespace WindowsFormsApp7
             JsonSerializer serializer = new JsonSerializer();
             try
             {
-                using (StreamWriter sw = new StreamWriter(textBox6.Text))
+                using (StreamWriter sw = new StreamWriter(textBoxSave.Text))
                 using (JsonWriter writer = new JsonTextWriter(sw))
                 {
                     if (peoples1.Peoples.Count != 0)
@@ -107,7 +114,7 @@ namespace WindowsFormsApp7
             {
                 label12.Text = "некорректный путь";
             }
-            textBox6.Text = "";
+            textBoxSave.Text = "";
         }
 
 
@@ -115,11 +122,11 @@ namespace WindowsFormsApp7
         {
             try
             {
-                if (textBox5.Text == "")
+                if (textBoxOpen.Text == "")
                     label7.Text = "Введите Директорию!";
                 else
                 {
-                    StreamReader sw = new StreamReader(textBox5.Text);
+                    StreamReader sw = new StreamReader(textBoxOpen.Text);
                     string readtext = sw.ReadToEnd();
                     mylistcollection deserialized = JsonConvert.DeserializeObject<mylistcollection>(readtext);
                     for (int i = 0; i < deserialized.Peoples.Count; i++)
@@ -129,23 +136,23 @@ namespace WindowsFormsApp7
                         dataGridView1.Rows.Add(deserialized.Peoples[i].name, deserialized.Peoples[i].lastname, deserialized.Peoples[i].sex, deserialized.Peoples[i].height);
                     }
                     sw.Close();
-                    textBox5.Text = "";
+                    textBoxOpen.Text = "";
                 }
             }
             catch(System.IO.FileNotFoundException)
             {
                 label7.Text = "invalid directory";
-                textBox5.Text = "";
+                textBoxOpen.Text = "";
             }
             catch(System.NullReferenceException)
             {
                 label7.Text = "invalid file";
-                textBox5.Text = "";
+                textBoxOpen.Text = "";
             }
             catch (System.ArgumentException)
             {
                 label7.Text = "некорректный путь";
-                textBox5.Text = "";
+                textBoxOpen.Text = "";
             }
         }
 

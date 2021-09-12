@@ -34,16 +34,16 @@ namespace WindowsFormsApp7
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxLastname = new System.Windows.Forms.TextBox();
+            this.textBoxSex = new System.Windows.Forms.TextBox();
+            this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.buttonOpen = new System.Windows.Forms.Button();
+            this.textBoxOpen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@ namespace WindowsFormsApp7
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.buttonGiveinfo = new System.Windows.Forms.Button();
+            this.textBoxSave = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -103,50 +103,50 @@ namespace WindowsFormsApp7
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(556, 258);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 75);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAdd.Location = new System.Drawing.Point(556, 258);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(163, 75);
+            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Snow;
-            this.textBox1.Location = new System.Drawing.Point(504, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxName.BackColor = System.Drawing.Color.Snow;
+            this.textBoxName.Location = new System.Drawing.Point(504, 29);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(257, 20);
+            this.textBoxName.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxLastname
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Snow;
-            this.textBox2.Location = new System.Drawing.Point(504, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(257, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxLastname.BackColor = System.Drawing.Color.Snow;
+            this.textBoxLastname.Location = new System.Drawing.Point(504, 80);
+            this.textBoxLastname.Name = "textBoxLastname";
+            this.textBoxLastname.Size = new System.Drawing.Size(257, 20);
+            this.textBoxLastname.TabIndex = 3;
             // 
-            // textBox3
+            // textBoxSex
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Snow;
-            this.textBox3.Location = new System.Drawing.Point(504, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(257, 20);
-            this.textBox3.TabIndex = 4;
+            this.textBoxSex.BackColor = System.Drawing.Color.Snow;
+            this.textBoxSex.Location = new System.Drawing.Point(504, 131);
+            this.textBoxSex.Name = "textBoxSex";
+            this.textBoxSex.Size = new System.Drawing.Size(257, 20);
+            this.textBoxSex.TabIndex = 4;
             // 
-            // textBox4
+            // textBoxHeight
             // 
-            this.textBox4.BackColor = System.Drawing.Color.Snow;
-            this.textBox4.Location = new System.Drawing.Point(504, 181);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(257, 20);
-            this.textBox4.TabIndex = 5;
+            this.textBoxHeight.BackColor = System.Drawing.Color.Snow;
+            this.textBoxHeight.Location = new System.Drawing.Point(504, 181);
+            this.textBoxHeight.Name = "textBoxHeight";
+            this.textBoxHeight.Size = new System.Drawing.Size(257, 20);
+            this.textBoxHeight.TabIndex = 5;
             // 
             // label1
             // 
@@ -158,40 +158,40 @@ namespace WindowsFormsApp7
             this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 6;
             // 
-            // button2
+            // buttonSave
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(9, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 29);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Сохранить";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSave.Location = new System.Drawing.Point(9, 498);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(112, 29);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.button2_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button3
+            // buttonOpen
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(9, 385);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 29);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Открыть";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonOpen.Location = new System.Drawing.Point(9, 385);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(119, 29);
+            this.buttonOpen.TabIndex = 8;
+            this.buttonOpen.Text = "Открыть";
+            this.buttonOpen.UseVisualStyleBackColor = false;
+            this.buttonOpen.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox5
+            // textBoxOpen
             // 
-            this.textBox5.Location = new System.Drawing.Point(9, 358);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(243, 20);
-            this.textBox5.TabIndex = 9;
+            this.textBoxOpen.Location = new System.Drawing.Point(9, 358);
+            this.textBoxOpen.Name = "textBoxOpen";
+            this.textBoxOpen.Size = new System.Drawing.Size(243, 20);
+            this.textBoxOpen.TabIndex = 9;
             // 
             // label2
             // 
@@ -282,24 +282,24 @@ namespace WindowsFormsApp7
             this.label10.Text = "Данные о самых высоких:";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // button4
+            // buttonGiveinfo
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(592, 518);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 29);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Получить";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonGiveinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(78)))));
+            this.buttonGiveinfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonGiveinfo.Location = new System.Drawing.Point(592, 518);
+            this.buttonGiveinfo.Name = "buttonGiveinfo";
+            this.buttonGiveinfo.Size = new System.Drawing.Size(112, 29);
+            this.buttonGiveinfo.TabIndex = 20;
+            this.buttonGiveinfo.Text = "Получить";
+            this.buttonGiveinfo.UseVisualStyleBackColor = false;
+            this.buttonGiveinfo.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox6
+            // textBoxSave
             // 
-            this.textBox6.Location = new System.Drawing.Point(9, 472);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(243, 20);
-            this.textBox6.TabIndex = 22;
+            this.textBoxSave.Location = new System.Drawing.Point(9, 472);
+            this.textBoxSave.Name = "textBoxSave";
+            this.textBoxSave.Size = new System.Drawing.Size(243, 20);
+            this.textBoxSave.TabIndex = 22;
             // 
             // label11
             // 
@@ -339,8 +339,8 @@ namespace WindowsFormsApp7
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.textBoxSave);
+            this.Controls.Add(this.buttonGiveinfo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -350,15 +350,15 @@ namespace WindowsFormsApp7
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBoxOpen);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxHeight);
+            this.Controls.Add(this.textBoxSex);
+            this.Controls.Add(this.textBoxLastname);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -377,16 +377,16 @@ namespace WindowsFormsApp7
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxLastname;
+        private System.Windows.Forms.TextBox textBoxSex;
+        private System.Windows.Forms.TextBox textBoxHeight;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.TextBox textBoxOpen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -397,8 +397,8 @@ namespace WindowsFormsApp7
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button buttonGiveinfo;
+        private System.Windows.Forms.TextBox textBoxSave;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
